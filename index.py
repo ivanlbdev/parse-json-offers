@@ -56,6 +56,11 @@ class MakeListOrders:
 
     @staticmethod
     def check_actual_item(xml_id):
+        """
+        проверяет, есть ли товар такой на основне передаваемого словаря
+        :param xml_id: словарь
+        :return: возвращает True, есть есть, иначе False
+        """
         try:
             smth = xml_and_id[xml_id]
             return True
@@ -64,6 +69,11 @@ class MakeListOrders:
             return False
 
     def make_items(self, it_object):
+        """
+        Делает предварительный список только с нужными данными
+        :param it_object: идентификатор словаря с сопуткой
+        :return: ничего не возвращает, заполняет self.items нужными данными
+        """
         for item in self.json_data:
             ok = self.check_actual_item(item['xmlId'])
             if ok:
@@ -81,11 +91,21 @@ class MakeListOrders:
 
     @staticmethod
     def check_cat(item_id):
+        """
+        Проверяет категорию на исключение
+        :param item_id: id товара
+        :return: возвращает товар, если у него категория не исключение
+        """
         if categories[item_id] != except_cat:
             return item_id
 
     @staticmethod
     def id_in_xml(xml_id):
+        """
+        Ищет id по номенклатурнику
+        :param xml_id: номенклатурник
+        :return: возвращает id товара
+        """
         return xml_and_id[xml_id]
 
     def big_list(self, item):
@@ -93,12 +113,11 @@ class MakeListOrders:
         pre_offer_list = []
         while len(pre_offer_list) < 12:
             for list_item in item['all_offers']:
-                if len(list_item) > count:
-                    if len(pre_offer_list) < 12:
-                        try:
-                            pre_offer_list.append(self.id_in_xml(list_item[count]))
-                        except Exception as e:
-                            errors.append(e)
+                if len(list_item) > count and len(pre_offer_list) < 12:
+                    try:
+                        pre_offer_list.append(self.id_in_xml(list_item[count]))
+                    except Exception as e:
+                        errors.append(e)
             count += 1
         return pre_offer_list
 
