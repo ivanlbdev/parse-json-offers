@@ -1,0 +1,371 @@
+{
+"method": "sendOperation",
+"data": {
+"typeOperation": "relatedOffers",
+"data": {
+"countOffers": 30,
+"offers": [
+{
+"xmlId": "Х11657",
+"countRelatedOffers": 1,
+"relatedOffers": [
+{
+"xmlIdCategory": "CAT_S1v2DzUs8oZ6",
+"offers": [
+"X1317131148"
+]
+}
+]
+},
+{
+"xmlId": "О00000037782",
+"countRelatedOffers": 1,
+"relatedOffers": [
+{
+"xmlIdCategory": "CAT_e7TF9aEm2Q2v",
+"offers": [
+"О00000034359"
+]
+}
+]
+},
+{
+"xmlId": "О00000035968",
+"countRelatedOffers": 1,
+"relatedOffers": [
+{
+"xmlIdCategory": "CAT_Ye97tV9Hp6yD",
+"offers": [
+"Х131328"
+]
+}
+]
+},
+{
+"xmlId": "О00000004191",
+"countRelatedOffers": 1,
+"relatedOffers": [
+{
+"xmlIdCategory": "CAT_3Snv3XVn44Ac",
+"offers": [
+"X1090179"
+]
+}
+]
+},
+{
+"xmlId": "X188201",
+"countRelatedOffers": 1,
+"relatedOffers": [
+{
+"xmlIdCategory": "CAT_2wGf3IK2qAd7",
+"offers": [
+"77777X9002428"
+]
+}
+]
+},
+{
+"xmlId": "О00000007725",
+"countRelatedOffers": 1,
+"relatedOffers": [
+{
+"xmlIdCategory": "CAT_Ud8S7hJp6M7a",
+"offers": [
+"О00000016741"
+]
+}
+]
+},
+{
+"xmlId": "О00000007731",
+"countRelatedOffers": 1,
+"relatedOffers": [
+{
+"xmlIdCategory": "CAT_4Kry1FaK90rV",
+"offers": [
+"Х130487"
+]
+}
+]
+},
+{
+"xmlId": "708333",
+"countRelatedOffers": 1,
+"relatedOffers": [
+{
+"xmlIdCategory": "CAT_X4oO5p9fNLu5",
+"offers": [
+"720151"
+]
+}
+]
+},
+{
+"xmlId": "О00000008096",
+"countRelatedOffers": 1,
+"relatedOffers": [
+{
+"xmlIdCategory": "CAT_9Ng0Mx4TlQ1a",
+"offers": [
+"90089960"
+]
+}
+]
+},
+{
+"xmlId": "О00000008222",
+"countRelatedOffers": 1,
+"relatedOffers": [
+{
+"xmlIdCategory": "CAT_o2SlX3sB1Jt3",
+"offers": [
+"X13280389"
+]
+}
+]
+},
+{
+"xmlId": "О00000008204",
+"countRelatedOffers": 1,
+"relatedOffers": [
+{
+"xmlIdCategory": "CAT_w3V8Xby8EAw6",
+"offers": [
+"Х15275"
+]
+}
+]
+},
+{
+"xmlId": "О00000025686",
+"countRelatedOffers": 1,
+"relatedOffers": [
+{
+"xmlIdCategory": "CAT_T1gw3UJ9n8wN",
+"offers": [
+"О00000025698"
+]
+}
+]
+},
+{
+"xmlId": "О00000008326",
+"countRelatedOffers": 1,
+"relatedOffers": [
+{
+"xmlIdCategory": "CAT_i0FBn6q5IIj4",
+"offers": [
+"X10191553"
+]
+}
+]
+},
+{
+"xmlId": "О00000025716",
+"countRelatedOffers": 1,
+"relatedOffers": [
+{
+"xmlIdCategory": "CAT_S1v2DzUs8oZ6",
+"offers": [
+"О00000025718"
+]
+}
+]
+},
+{
+"xmlId": "О00000025709",
+"countRelatedOffers": 1,
+"relatedOffers": [
+{
+"xmlIdCategory": "CAT_T1gw3UJ9n8wN",
+"offers": [
+"О00000025705"
+]
+}
+]
+},
+{
+"xmlId": "X19039526",
+"countRelatedOffers": 1,
+"relatedOffers": [
+{
+"xmlIdCategory": "CAT_Jk2Nw7k9MBn0",
+"offers": [
+"О00000013851"
+]
+}
+]
+},
+{
+"xmlId": "X18895",
+"countRelatedOffers": 1,
+"relatedOffers": [
+{
+"xmlIdCategory": "CAT_B0ij0VkR56aK",
+"offers": [
+"X186125255"
+]
+}
+]
+},
+{
+"xmlId": "X968259",
+"countRelatedOffers": 1,
+"relatedOffers": [
+{
+"xmlIdCategory": "CAT_1yJwH2z5T7Af",
+"offers": [
+"О00000032782"
+]
+}
+]
+},
+{
+"xmlId": "X968275336",
+"countRelatedOffers": 1,
+"relatedOffers": [
+{
+"xmlIdCategory": "CAT_1yJwH2z5T7Af",
+"offers": [
+"X968278"
+]
+}
+]
+},
+{
+"xmlId": "X1048041302561",
+"countRelatedOffers": 1,
+"relatedOffers": [
+{
+"xmlIdCategory": "CAT_7yQZ4z8eZ8cH",
+"offers": [
+"Х10654"
+]
+}
+]
+},
+{
+"xmlId": "О00000025229",
+"countRelatedOffers": 1,
+"relatedOffers": [
+{
+"xmlIdCategory": "CAT_Jk2Nw7k9MBn0",
+"offers": [
+"О00000014702"
+]
+}
+]
+},
+{
+"xmlId": "X968210",
+"countRelatedOffers": 1,
+"relatedOffers": [
+{
+"xmlIdCategory": "CAT_Ok0G5vm2HeY8",
+"offers": [
+"О00000011216"
+]
+}
+]
+},
+{
+"xmlId": "О00000009160",
+"countRelatedOffers": 1,
+"relatedOffers": [
+{
+"xmlIdCategory": "CAT_Ok0G5vm2HeY8",
+"offers": [
+"О00000011216"
+]
+}
+]
+},
+{
+"xmlId": "О00000025235",
+"countRelatedOffers": 1,
+"relatedOffers": [
+{
+"xmlIdCategory": "CAT_yM3z4C7NmDa1",
+"offers": [
+"X169751860"
+]
+}
+]
+},
+{
+"xmlId": "О00000025243",
+"countRelatedOffers": 1,
+"relatedOffers": [
+{
+"xmlIdCategory": "CAT_T0dR9n0IxjL5",
+"offers": [
+"О00000021682"
+]
+}
+]
+},
+{
+"xmlId": "О00000025244",
+"countRelatedOffers": 1,
+"relatedOffers": [
+{
+"xmlIdCategory": "CAT_tI4Qb6eF6rK8",
+"offers": [
+"X1694736"
+]
+}
+]
+},
+{
+"xmlId": "О00000005497",
+"countRelatedOffers": 1,
+"relatedOffers": [
+{
+"xmlIdCategory": "CAT_Vc97zP9qI2Ks",
+"offers": [
+"О00000005501"
+]
+}
+]
+},
+{
+"xmlId": "О00000025245",
+"countRelatedOffers": 1,
+"relatedOffers": [
+{
+"xmlIdCategory": "CAT_Ok0G5vm2HeY8",
+"offers": [
+"О00000011216"
+]
+}
+]
+},
+{
+"xmlId": "Х1302710275",
+"countRelatedOffers": 1,
+"relatedOffers": [
+{
+"xmlIdCategory": "CAT_yM3z4C7NmDa1",
+"offers": [
+"X13031622"
+]
+}
+]
+},
+{
+"xmlId": "О00000005293",
+"countRelatedOffers": 1,
+"relatedOffers": [
+{
+"xmlIdCategory": "CAT_Ok0G5vm2HeY8",
+"offers": [
+"О00000011216"
+]
+}
+]
+}
+]
+}
+}
+}
