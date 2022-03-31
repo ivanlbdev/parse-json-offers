@@ -2,7 +2,6 @@ import csv
 import json
 import os
 
-
 data_site = []
 json_data = ''
 xml_and_id = {}
@@ -13,11 +12,19 @@ except_cat = 'Элементы питания'
 
 
 def open_json():
+    """
+    Открывает json файл по директории
+    :return: python список из json
+    """
     with open("json/Temp_relatedOffers_2022_03_30_10_55_52.json", "r", encoding='utf-8') as read_file:
         return json.load(read_file)
 
 
 def open_csv():
+    """
+    Открывает csv и записывает данные в несколько переменных
+    :return: ничего не возвращает
+    """
     with open('datasite.csv', encoding='utf-8', newline='') as csv_file:
         data_csv = csv.DictReader(csv_file, delimiter=',')
         for row in data_csv:
@@ -27,12 +34,17 @@ def open_csv():
                 'site_id': row['ID'],
                 'category': row['Основной раздел'],
             }
-            xml_and_id[row['Внешний код']] = row['ID']
-            xml_and_id[row['ID']] = row['Основной раздел']
+            xml_and_id[row['Внешний код']] = row['ID']  # Пишем в словарь для вычленения id
+            xml_and_id[row['ID']] = row['Основной раздел']  # Пишем в словарь для вычленения категории
             data_site.append(item_elem)
 
 
 class MakeListOrders:
+    """
+    Клас занимается созданием списка товаров и сопутки.
+
+    """
+
     def __init__(self, data_items):
         self.json_data = data_items
         self.object_item = {
@@ -42,7 +54,8 @@ class MakeListOrders:
         }
         self.items = []
 
-    def check_actual_item(self, xml_id):
+    @staticmethod
+    def check_actual_item(xml_id):
         try:
             smth = xml_and_id[xml_id]
             return True
@@ -66,11 +79,13 @@ class MakeListOrders:
                 }
         print(self.items[0])
 
-    def check_cat(self, item_id):
+    @staticmethod
+    def check_cat(item_id):
         if categories[item_id] != except_cat:
             return item_id
 
-    def id_in_xml(self, xml_id):
+    @staticmethod
+    def id_in_xml(xml_id):
         return xml_and_id[xml_id]
 
     def big_list(self, item):
@@ -108,6 +123,9 @@ class MakeListOrders:
 
 
 class MakeCsv:
+    """
+    Класс пишет в csv файл и умеет реформатировать список для этого
+    """
     def __init__(self, list_data):
         self.list_data = list_data
         self.done_list = []
