@@ -45,21 +45,25 @@ class MakeListOrders:
     def check_actual_item(self, xml_id):
         try:
             smth = xml_and_id[xml_id]
+            return True
         except Exception as e:
             errors_actual.append(e)
+            return False
 
     def make_items(self, it_object):
         for item in self.json_data:
-            self.object_item['xml_id'] = item['xmlId']
-            self.check_actual_item(item['xmlId'])
-            self.object_item['all_count'] = item['countRelatedOffers']
-            for off_item in item[it_object]:
-                self.object_item['all_offers'].append(off_item['offers'])
-            self.items.append(self.object_item)
-            self.object_item = {
-                'xml_id': '',
-                'all_offers': [],
-            }
+            ok = self.check_actual_item(item['xmlId'])
+            if ok:
+                self.object_item['xml_id'] = item['xmlId']
+                self.check_actual_item(item['xmlId'])
+                self.object_item['all_count'] = item['countRelatedOffers']
+                for off_item in item[it_object]:
+                    self.object_item['all_offers'].append(off_item['offers'])
+                self.items.append(self.object_item)
+                self.object_item = {
+                    'xml_id': '',
+                    'all_offers': [],
+                }
         print(self.items[0])
 
     def check_cat(self, item_id):
