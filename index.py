@@ -8,6 +8,7 @@ json_data = ''
 xml_and_id = {}
 categories = {}
 errors = []
+errors_actual = []
 except_cat = 'Элементы питания'
 
 
@@ -41,9 +42,16 @@ class MakeListOrders:
         }
         self.items = []
 
+    def check_actual_item(self, xml_id):
+        try:
+            smth = xml_and_id[xml_id]
+        except Exception as e:
+            errors_actual.append(e)
+
     def make_items(self, it_object):
         for item in self.json_data:
             self.object_item['xml_id'] = item['xmlId']
+            self.check_actual_item(item['xmlId'])
             self.object_item['all_count'] = item['countRelatedOffers']
             for off_item in item[it_object]:
                 self.object_item['all_offers'].append(off_item['offers'])
@@ -129,3 +137,4 @@ if __name__ == '__main__':
     MakeCsv(done).write_csv()
     print(os.getcwd())
     print(len(errors))
+    print(len(errors_actual))
