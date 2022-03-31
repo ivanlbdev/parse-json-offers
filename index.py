@@ -59,7 +59,6 @@ class MakeListOrders:
             return item_id
 
     def id_in_xml(self, xml_id):
-        self.check_cat(xml_and_id[xml_id])
         return xml_and_id[xml_id]
 
     def big_list(self, item):
