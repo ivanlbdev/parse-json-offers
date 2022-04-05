@@ -9,6 +9,13 @@ categories = {}
 errors = []
 errors_actual = []
 except_cat = 'Элементы питания'
+cat_width_bat = [
+    'Лазерные дальномеры',
+    'Фонари',
+    'Лазерные нивелиры и уровни',
+    'Автомобильные аксессуары',
+]
+how_much_but = []
 
 
 def open_json():
@@ -16,7 +23,7 @@ def open_json():
     Открывает json файл по директории
     :return: python список из json
     """
-    with open("json/Temp_relatedOffers_2022_03_30_10_55_52.json", "r", encoding='utf-8') as read_file:
+    with open("json/Temp_relatedOffers_2022_03_30_10_55_55.json", "r", encoding='utf-8') as read_file:
         return json.load(read_file)
 
 
@@ -35,7 +42,7 @@ def open_csv():
                 'category': row['Основной раздел'],
             }
             xml_and_id[row['Внешний код']] = row['ID']  # Пишем в словарь для вычленения id
-            xml_and_id[row['ID']] = row['Основной раздел']  # Пишем в словарь для вычленения категории
+            categories[row['ID']] = row['Основной раздел']  # Пишем в словарь для вычленения категории
             data_site.append(item_elem)
 
 
@@ -87,7 +94,7 @@ class MakeListOrders:
                     'xml_id': '',
                     'all_offers': [],
                 }
-        print(self.items[0])
+        # print(self.items[0])
 
     @staticmethod
     def check_cat(item_id):
@@ -98,6 +105,8 @@ class MakeListOrders:
         """
         if categories[item_id] != except_cat:
             return item_id
+        else:
+            return False
 
     @staticmethod
     def id_in_xml(xml_id):
@@ -115,7 +124,10 @@ class MakeListOrders:
             for list_item in item['all_offers']:
                 if len(list_item) > count and len(pre_offer_list) < 12:
                     try:
-                        pre_offer_list.append(self.id_in_xml(list_item[count]))
+                        if self.check_cat(self.id_in_xml(list_item[count])):
+                            pre_offer_list.append(self.id_in_xml(list_item[count]))
+                        else:
+                            continue
                     except Exception as e:
                         errors.append(e)
             count += 1
@@ -170,12 +182,13 @@ class MakeCsv:
 if __name__ == '__main__':
     open_csv()
     json_data = open_json()
-    print(xml_and_id)
+    # print(xml_and_id)
     # print(json_data['data']['data']['offers'])
     offers = MakeListOrders(json_data['data']['data']['offers'])
     offers.make_items('relatedOffers')
     done = offers.make_list_offers()
     MakeCsv(done).write_csv()
-    print(os.getcwd())
+    # print(os.getcwd())
     print(len(errors))
     print(len(errors_actual))
+    print(len(how_much_but))
