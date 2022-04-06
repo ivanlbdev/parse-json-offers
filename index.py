@@ -23,7 +23,7 @@ def open_json():
     Открывает json файл по директории
     :return: python список из json
     """
-    with open("json/Temp_relatedOffers_2022_03_30_10_55_55.json", "r", encoding='utf-8') as read_file:
+    with open("json/Temp_relatedOffers_2022_03_30_10_55_28.json", "r", encoding='utf-8') as read_file:
         return json.load(read_file)
 
 
@@ -97,15 +97,23 @@ class MakeListOrders:
         # print(self.items[0])
 
     @staticmethod
-    def check_cat(item_id):
+    def check_cat(item_id, head_item):
         """
         Проверяет категорию на исключение
         :param item_id: id товара
         :return: возвращает товар, если у него категория не исключение
         """
-        if categories[item_id] != except_cat:
-            return item_id
-        else:
+        try:
+            head_item_id = xml_and_id[head_item]
+            if head_item_id in cat_width_bat:
+                return item_id
+            else:
+                if categories[item_id] != except_cat:
+                    return item_id
+                else:
+                    return False
+        except Exception as e:
+            errors.append(e)
             return False
 
     @staticmethod
@@ -124,7 +132,7 @@ class MakeListOrders:
             for list_item in item['all_offers']:
                 if len(list_item) > count and len(pre_offer_list) < 12:
                     try:
-                        if self.check_cat(self.id_in_xml(list_item[count])):
+                        if self.check_cat(self.id_in_xml(list_item[count]), item['xml_id']):
                             pre_offer_list.append(self.id_in_xml(list_item[count]))
                         else:
                             continue
@@ -138,7 +146,10 @@ class MakeListOrders:
         for list_item in item['all_offers']:
             for one_item in list_item:
                 try:
-                    pre_offer_list.append(self.id_in_xml(one_item))
+                    if self.check_cat(self.id_in_xml(one_item), item['xml_id']):
+                        pre_offer_list.append(self.id_in_xml(one_item))
+                    else:
+                        continue
                 except Exception as e:
                     errors.append(e)
         return pre_offer_list
@@ -149,7 +160,7 @@ class MakeListOrders:
                 item['all_offers'] = self.big_list(item)
             else:
                 item['all_offers'] = self.small_list(item)
-        # print(self.items)
+        print(self.items)
         return self.items
 
 
