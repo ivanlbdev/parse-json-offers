@@ -22,7 +22,7 @@ def open_json():
     Открывает json файл по директории
     :return: python список из json
     """
-    with open("json/Temp_relatedOffers_2022_03_30_10_55_28.json", "r", encoding='utf-8') as read_file:
+    with open("json/Temp_relatedOffers_2022_03_30_10_55_42.json", "r", encoding='utf-8') as read_file:
         return json.load(read_file)
 
 
@@ -104,7 +104,8 @@ class MakeListOrders:
         """
         try:
             head_item_id = xml_and_id[head_item]
-            if head_item_id in cat_width_bat:
+            cat_head_item_id = categories[head_item_id]
+            if cat_head_item_id in cat_width_bat:
                 return item_id
             else:
                 if categories[item_id] != except_cat:
@@ -127,7 +128,10 @@ class MakeListOrders:
     def big_list(self, item):
         count = 0
         pre_offer_list = []
-        while len(pre_offer_list) < 12:
+        start = True
+        len_offers = len(item['all_offers'])
+        list_end = 0
+        while len(pre_offer_list) < 12 and start:
             for list_item in item['all_offers']:
                 if len(list_item) > count and len(pre_offer_list) < 12:
                     try:
@@ -137,6 +141,11 @@ class MakeListOrders:
                             continue
                     except Exception as e:
                         errors.append(e)
+                if len(list_item) < count:
+                    list_end += 1
+                if len_offers == list_end:
+                    start = False
+
             count += 1
         return pre_offer_list
 
