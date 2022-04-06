@@ -1,6 +1,5 @@
 import csv
 import json
-import os
 
 data_site = []
 json_data = ''
@@ -199,7 +198,6 @@ if __name__ == '__main__':
     offers.make_items('relatedOffers')
     done = offers.make_list_offers()
     MakeCsv(done).write_csv()
-    # print(os.getcwd())
     print(len(errors))
     print(len(errors_actual))
     print(len(how_much_but))
